@@ -39,4 +39,6 @@ Temporary Items
 */vendor
 */database.sqlite
 
+.claude
+
 # End of https://www.toptal.com/developers/gitignore/api/macos
