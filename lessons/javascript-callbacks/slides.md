@@ -2,6 +2,7 @@
 marp: true
 theme: default
 paginate: true
+html: true
 ---
 
 # JavaScript Callbacks
@@ -11,15 +12,27 @@ paginate: true
 
 ## Agenda
 
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 2em;">
+<div>
+
 1. Opening problem
 2. Prior knowledge check
 3. Functions as values
 4. What is a callback?
 5. The event loop
 6. Error-first callbacks
+
+</div>
+<div>
+
 7. Callback hell
-8. Exercise
-9. Reflection
+8. Exercise 1 — Write Your First Callback
+9. Exercise 2 — Predict the Output
+10. Exercise 3 — Fix the Sequence
+11. Reflection
+
+</div>
+</div>
 
 ---
 
@@ -93,21 +106,7 @@ loadScript("app.js", function(script) {
 
 ## The event loop
 
-```
-┌─────────────────┐     ┌──────────────┐
-│   Call Stack    │     │   Web APIs   │
-│                 │────▶│  setTimeout  │
-│  (runs code)    │     │  fetch, etc. │
-└────────┬────────┘     └──────┬───────┘
-         │                     │
-         │    ┌────────────────▼────────┐
-         │    │     Callback Queue      │
-         │    │  (waiting to run)       │
-         │    └────────────────┬────────┘
-         │                     │
-         └──── Event Loop ──────┘
-              (moves when stack is empty)
-```
+![w:600](./images/eventloop.png)
 
 ---
 
@@ -176,7 +175,55 @@ Problems: hard to read, hard to handle errors, hard to change.
 
 ---
 
-## Exercise — Fix the Sequence
+## Get the exercises
+
+Open the GitHub Classroom assignment and accept it to get your own copy of the exercise files.
+
+[classroom.github.com/a/nDB06XaC](https://classroom.github.com/a/nDB06XaC)
+
+---
+
+## Exercise 1 — Write Your First Callback
+
+Complete `playSong` so that it:
+
+1. Accepts a song title and a callback
+2. Logs `"Playing: <title>"`
+3. Calls the callback with the title when done
+
+```javascript
+function playSong(title, onFinished) {
+  // your code here
+}
+
+// Call playSong here
+```
+
+Open `exercises/exercise-1.js` — *5 minutes*
+
+---
+
+## Exercise 2 — Predict the Output
+
+Before running: write down what you think the output order will be.
+
+```javascript
+console.log("Opening app...");
+
+setTimeout(function () {
+  console.log("Playlist loaded");
+}, 0);
+
+console.log("Waiting for your playlist...");
+```
+
+Answer in a comment: why does `"Playlist loaded"` appear last?
+
+Open `exercises/exercise-2.js` — *5 minutes*
+
+---
+
+## Exercise 3 — Fix the Sequence
 
 A DJ set needs three songs to play in order.
 
