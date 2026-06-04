@@ -113,7 +113,7 @@ The rest of JavaScript keeps running.
 | Promise chain | Async/await |
 |---|---|
 | `.then(r => r.json())` | `await r.json()` |
-| `.then(d => use(d))` | `use(d)` |
+| `.then(d => renderCars(d))` | `renderCars(d)` |
 | `.catch(e => ...)` | `try { } catch (e) { }` |
 
 Same mechanism. Different syntax.
